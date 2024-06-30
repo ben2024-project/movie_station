@@ -1,0 +1,117 @@
+from django.db import models
+
+# Create your models here.
+class Movie(models.Model):
+
+    title=models.CharField(max_length=200)
+
+    year=models.CharField(max_length=200)
+
+    director=models.CharField(max_length=200)
+
+    run_time=models.PositiveIntegerField()
+
+    language=models.CharField(max_length=200)
+
+    genre=models.CharField(max_length=200)
+
+    
+
+    sql query for inserting a new record 
+
+*insert into Movie (title,year, director.run_time,language.genre) values()
+
+>>ORM query for inserting a new record
+
+> ModelName.objects.create(field=value, filed=vale,field=value)
+
+Movie.objects.create(
+
+title="kgf,
+year="2018", 
+director="prasanth",
+run_time=160, 
+langaugae="kannada", 
+genre="action")
+
+>>ORM query for listing
+
+qs=Movie.objects.all()
+
+movie_obj=Movie.objects.get(id=2) 
+
+mo=Movie.objects.filter(genre='action') 
+
+mo=Movie.objects.filter(language='kannada',genre='action')
+
+ m=Movie.objects.filter(year__lt=2021,language="kannada") 
+
+>__gt(greater than)
+
+>__lt(less than)  
+
+>__gte(greater than or =)
+
+>__lte(less than or =)
+
+>__iexact (case insensitive)
+
+>__icontains
+
+m=Movie.objects.filter(genre__iexact='Action')
+
+c=Movie.objects.filter(title__icontains='an') 
+
+n=Movie.objects.filter(genre__in=['action','sci-fi']) 
+
+>>ORM query for update 
+
+Movie.objects.filter(id=1).update(director="prashanth neel",run_time=170) 
+
+>>ORM query for delete
+
+Movie.objects.filter(id=3).delete() 
+
+>>ORM query for sorting
+
+ o=Movie.objects.all().order_by('run_time') #asc
+
+ o=Movie.objects.all().order_by('-run_time') #desc
+
+Movie which has highest run time
+
+o=Movie.objects.all().order_by('-run_time')[0]
+
+o=Movie.objects.all().order_by('-run_time')[0:4]
+
+>>aggregate ORM query
+
+(Max,Min,Sum,Count,Avg)
+
+from django.db.models import Max
+max_runtime=Movie.objects.aggregate(Max('run_time'))
+
+from django.db.models import Min
+min_runtime=Movie.objects.aggregate(Min('run_time')) 
+
+>>max runtime movie
+
+max_runtime=Movie.objects.aggregate(logest=(Max('run_time')))
+max_runtime 
+v=Movie.objects.filter(run_time=max_runtime.get('logest'))
+
+
+>>min runtime movie
+
+min_runtime=Movie.objects.aggregate(shortest=(Max('run_time')))
+min_runtime 
+vl=Movie.objects.filter(run_time=min_runtime.get('shortest'))
+
+
+>>group movies wrt genre
+
+a=Movie.objects.values('genre').annotate(summary=Count('genre')) 
+
+>>group movies wrt language
+
+ l=Movie.objects.values('language').annotate(summary=Count('language')) 

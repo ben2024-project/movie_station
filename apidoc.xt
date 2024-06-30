@@ -1,0 +1,166 @@
+schema:Movie
+
+attributes:title,year,director,run_time,language,genre
+
+
+1)api for listing all Movies
+
+   url:localhost:8000/api/Movies/
+
+   method:GET
+
+   body:nill
+
+   status:pending
+
+2)api for creating a new Movie
+
+   url:localhost:8000/api/Movies/
+
+   method:POST
+
+   body:{ 
+         "title":"Movie_title",
+
+         "year":"Movie_year",
+
+         "director":"Movie_director",
+
+         "run_time":"Movie_run_time",
+
+         "language":"Movie_language",
+         
+         "genre":"Movie_genre"
+        }
+
+     status:pending
+
+
+3)api for featching a specific Movie  
+
+     url:localhost:8000/api/Movies/{id}/
+
+     method:GET
+
+     body:nill
+
+     status:pending
+
+
+4)api for updating a specific Movie
+
+    url:localhost:8000/api/Movies/{id}/
+
+    method:PUT
+
+    body:{ 
+         "title":"Movie_title",
+
+         "year":"Movie_year",
+
+         "director":"Movie_director",
+
+         "run_time":"Movie_run_time",
+
+         "language":"Movie_language",
+         
+         "genre":"Movie_genre"
+        }
+
+    status:pending
+
+
+5)api for deleting a specific Movie
+
+     url:localhost:8000/api/Movies/{id}/
+
+     method:DELETE
+
+     body:nill
+
+     status:pending
+
+============================================================================================================================================
+
+
+schema:Actor
+
+attributes:name,age,gender,picture
+
+1)api for listing all Actors
+
+   url:localhost:8000/api/Actors/
+
+   method:GET
+
+   body:nill
+
+   status:pending
+
+
+2)api for creating a new Actor
+
+   url:localhost:8000/api/Actors/
+
+   method:POST
+
+   body:{ 
+         "name":"Actor_name",
+
+         "age":"Actor_age",
+
+         "picture":"Actor_picture",
+         
+         "gender":"Actor_gender"
+        }
+
+     status:pending
+
+
+3)api for featching a specific Actor 
+
+     url:localhost:8000/api/Actors/{id}/
+
+     method:GET
+
+     body:nill
+
+     status:pending
+
+
+4)api for updating a specific Actor
+
+    url:localhost:8000/api/Actors/{id}/
+
+    method:PUT
+
+     body:{ 
+         "name":"Actor_name",
+
+         "age":"Actor_age",
+
+         "picture":"Actor_picture",
+         
+         "gender":"Actor_gender"
+        }
+
+    status:pending
+
+
+5)api for deleting a specific Actor
+
+     url:localhost:8000/api/Actors/{id}/
+
+     method:DELETE
+
+     body:nill
+
+     status:pending
+
+
+   
+
+
+
+  
+
